@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 //import First from './components/first.vue'
-import sec from './components/second.vue'
+import second from './components/second.vue'
 //import Todo from './components/Todo.vue'
 
 

@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-const secItem = ref(null)
-const secItems: any = ref([])
-const savesec = () => {
-    if(!secItem.value) return
-    secItems.value.push({
+const secondItem = ref(null)
+const secondItems: any = ref([])
+const savesecond = () => {
+    if(!secondItem.value) return
+    secondItems.value.push({
         done: false,
-        title: secItem.value
+        title: secondItem.value
     });
-    secItem.value = null
+    secondItem.value = null
 }
 
   const toggleAllSec = () =>{
-    secItems.value.forEach((Element:any, index:any) => {
-        secItems.value[index].done = !secItems.value[index].done
+    secondItems.value.forEach((Element:any, index:any) => {
+        secondItems.value[index].done = !secondItems.value[index].done
     });
   }
 
   const deleteItem = (index:any) => {
-    secItems.value.splice(index,1)
+    secondItems.value.splice(index,1)
   }
 
 
@@ -29,8 +29,8 @@ const savesec = () => {
 
     <div>
     <input type="checkbox" name="" id="" @change="toggleAllSec()">
-    <input type="text" id="" class="form-input" v-model="secItem" @keypress.enter="savesec()">
-    <button type="button" class="form-input" @click="savesec">add</button>
+    <input type="text" id="" class="form-input" v-model="secondItem" @keypress.enter="savesecond()">
+    <button type="button" class="form-input" @click="savesecond">add</button>
 </div>
 </div>
 </template>

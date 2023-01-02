@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import First from './components/first.vue'
-
+//import First from './components/first.vue'
+import sec from './components/second.vue'
 //import Todo from './components/Todo.vue'
 
 
 const userName = ref('')
-
-
-  
-   
- 
-
 
 const education = ref()
 const handleUserNameInput = (event:any)=>{
@@ -35,7 +29,7 @@ const handleRadio = (event:any)=>{
 </script>
 
 <template>
- <First></First>
+ <second></second>
 
   
   

@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 
 import App from "./App.vue";
-//any file that has .vue extension is a spcieal file time that is called
+//any file that has .vue extension is a spcieal file type that is called
 //vue component and vue can understand it but broswer cannot understand it
 import router from "./router";
 

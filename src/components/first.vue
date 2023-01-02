@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue';
    const firstItem = ref(null)
-   const firstItems: any = ref([])
+   const firstItems:any = ref([])
    const saveFirst = () =>{
     if(!firstItem.value)return
     firstItems.value.push({
         done: false,
         title: firstItem.value
     })
-    firstItem.value = null
+    firstItem.value =null
    }
 
   const del = () => {
    
 
-for(let index = firstItems.value.length-1;; index--)
+   for(let index = firstItems.value.length-1;; index--)
  {
     if(firstItems.value[index].done){
         firstItems.value.splice(index,1)

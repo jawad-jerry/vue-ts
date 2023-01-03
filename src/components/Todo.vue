@@ -32,17 +32,7 @@ const toggleAllTodo = () => {
             <button class="form-btn" type="button" @click="saveTodo()">Add</button>
         
         </div>
-        <div>
-            <table>
-        <tr v-for="(todo, index) in todoItems">
-            <td><input type="checkbox" name="" id="" v-model="todoItems[index].done"></td>
-            <td><span :class="todo.done ? 'done': ''">{{todo.title}}</span>
-                </td>
-            <td><button type="button" @click="deleteItem(index)">x</button></td>
-        </tr>
-        
-    </table>
-        </div>
+       
         
         
     </div>

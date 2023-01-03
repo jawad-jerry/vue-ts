@@ -3,7 +3,7 @@ import {ref} from 'vue'
 const secondItem = ref(null)
 const secondItems: any = ref([])
 const savesecond = () => {
-    if(!secondItem.value) return
+    if(secondItem.value) return
     secondItems.value.push({
         done: false,
         title: secondItem.value

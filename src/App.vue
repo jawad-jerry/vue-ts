@@ -5,6 +5,7 @@ import First from './components/first.vue'
 //import Todo from './components/Todo.vue'
 
 
+
 const userName = ref('')
 
 const education = ref()
@@ -30,6 +31,7 @@ const handleRadio = (event:any)=>{
 
 <template>
 <first></first>
+<todelist></todelist>
 
   
   

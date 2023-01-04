@@ -2,14 +2,13 @@
 import { ref } from 'vue';
    const firstItem = ref(null)
    const firstItems : any = ref([])
-   const saveFirst = (event:any) => {
-    console.log(event)
-    if(!firstItem.value) return
+   const saveFirst = () => {
+    if(!firstItem.value)return
     firstItems.value.push({
         done: false,
         title: firstItem.value
     })
-    firstItem.value = null
+    firstItem.value = null 
    }
 
   const del = () => {
@@ -44,7 +43,7 @@ const deleteItem = (index:any)=>{
     <div class="container">
     <div>
         <input type="checkbox" name="" id="" @change="toggleAllFirst()">
-        <input type="text" name="" id="" class="form-input" v-model="firstItem" @keypress.enter= "saveFirst($event)">
+        <input type="text" name="" id="" class="form-input" v-model="firstItem" @keypress.enter= "saveFirst()">
         <button type="button" @click="saveFirst">add</button>
         <button type="button" @click="del">delete</button>
     </div>

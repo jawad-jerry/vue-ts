@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-const firstItem = ref(null)
+const firstItem = ref('')
 const selectAll = ref(false)
 const firstItems: any = ref([])
 const saveFirst = () => {
     if (!firstItem.value) return
+    const duplicate = firstItems.value.some((el:any) => el.title == firstItem.value)
+    if(duplicate){
+        return alert(` ${firstItem.value} already exists`)
+    }
+    if(firstItem.value?.includes('react')){
+        alert('😖 😫 😩 React is very bad dont learn it, come to vue js you will be happy' )
+        return
+    }
+
     firstItems.value.push({
         done: false,
         title: firstItem.value
     })
-    firstItem.value = null
+    firstItem.value = ''
 }
 
 const del = () => {
@@ -25,12 +34,9 @@ const del = () => {
 
 
 watch(selectAll, () => {
-    
         firstItems.value.forEach((Element: any, index: any) => {
             firstItems.value[index].done = !firstItems.value[index].done
-
         })
-    
 })
 
 const deleteItem = (index: any) => {

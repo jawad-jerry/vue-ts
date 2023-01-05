@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { checkCompatEnabled } from '@vue/compiler-core';
+import { ref, vModelCheckbox, watch } from 'vue';
 const firstItem = ref('')
 const selectAll = ref(false)
 const firstItems: any = ref([])
@@ -9,18 +10,20 @@ const saveFirst = () => {
     if(duplicate){
         return alert(` ${firstItem.value} already exists`)
     }
-    if(firstItem.value?.includes('react')){
+    if(firstItem.value?.toLowerCase().includes('react')){
         alert('😖 😫 😩 React is very bad dont learn it, come to vue js you will be happy' )
         return
     }
 
     firstItems.value.push({
         done: false,
-        title: firstItem.value
+        title: firstItem.value,
+        
     })
     firstItem.value = ''
 }
 
+  
 const del = () => {
     selectAll.value = false
     for (let index = firstItems.value.length - 1; ; index--) {
@@ -33,7 +36,7 @@ const del = () => {
 
 
 
-watch(selectAll, () => {
+watch(selectAll, (newValue) => {
         firstItems.value.forEach((Element: any, index: any) => {
             firstItems.value[index].done = !firstItems.value[index].done
         })
@@ -50,7 +53,7 @@ const deleteItem = (index: any) => {
 <template>
     <div class="container">
         <div>
-            <input type="checkbox" name="" id="" v-model="selectAll">
+            <input type="checkbox" name="" id="" v-model="selectAll" :disabled="!firstItems.length">
             <input type="text" name="" id="" class="form-input" v-model="firstItem" @keypress.enter="saveFirst()">
             <button type="button" @click="saveFirst">add</button>
             <button type="button" @click="del">delete</button>

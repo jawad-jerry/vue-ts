@@ -31,7 +31,7 @@ const handleRadio = (event:any)=>{
 
 <template>
 <first></first>
-<todelist></todelist>
+
 
   
   

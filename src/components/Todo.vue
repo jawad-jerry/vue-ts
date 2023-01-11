@@ -1,27 +1,25 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-//composition api
 const todoItem = ref(null)
-const todoItems: any = ref([])
+const todoItems : any = ref([])
 const saveTodo = () => {
-    if(!todoItem.value) return 
+    if(!todoItem.value)return
     todoItems.value.push({
         done: false,
         title: todoItem.value
-    })
+    });
     todoItem.value = null
 }
 
-const toggleAllTodo = () => {
-    todoItems.value.forEach((element:any,index:any) => {
-        todoItems.value[index].done = !todoItems.value[index].done
-    });
-}
- 
+  const toggleAllTodo = () =>{
+    todoItems.value.forEach((Element:any, index:any) => {
+        todoItems.value[index].done = ! todoItems.value[index].done
+    })
+  }
 
  const deleteItem = (index:any)=>{
-    todoItems.value.splice(index,1)
+    todoItems.value.splice(index,3)
 }
 </script>
 <template>
@@ -32,7 +30,16 @@ const toggleAllTodo = () => {
             <button class="form-btn" type="button" @click="saveTodo()">Add</button>
         
         </div>
-       
+        <div>
+            <table>
+        <tr v-for="(todo, index) in todoItems">
+           <td><input type="checkbox" name="" id="" v-model="todoItems[index].done"></td>
+            <td><span :class="todo.done ? 'done': ''">{{todo.title}}</span></td>
+          <td><button type="button" @click="deleteItem(index)">x</button></td>
+        </tr>
+        
+    </table>
+        </div>
         
         
     </div>

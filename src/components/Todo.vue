@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 const todoItem = ref(null)
 const todoItems : any = ref([])
-const saveTodo = () => {
+const saveTodo = () =>{
     if(!todoItem.value)return
     todoItems.value.push({
         done: false,
@@ -12,15 +12,15 @@ const saveTodo = () => {
     todoItem.value = null
 }
 
-  const toggleAllTodo = () =>{
+   const toggleAllTodo = () =>{
     todoItems.value.forEach((Element:any, index:any) => {
-        todoItems.value[index].done = ! todoItems.value[index].done
-    })
-  }
+        todoItems.value[index].done = !todoItems.value[index].done
+    });
+   }
 
- const deleteItem = (index:any)=>{
-    todoItems.value.splice(index,3)
-}
+   const deleteItem = (index:any) =>{
+    todoItems.value.splice(index,1)
+   }
 </script>
 <template>
     <div class="container">

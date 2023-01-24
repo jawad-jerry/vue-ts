@@ -23,6 +23,14 @@ const saveSecond = () =>{
 </script>
 
 <template>
+  <div class="container">
+    <div>
+      <input type="checkbox" class="" id="">
+      <input type="text" class="" id="">
+      <button type="button" class="">add</button>
+
+    </div>
+  </div>
 
 </template>
 

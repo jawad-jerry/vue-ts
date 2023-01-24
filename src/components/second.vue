@@ -1,37 +1,30 @@
 <script setup lang="ts">
-import  { ref } from 'vue';
-const second = ref('ssss')
-
-
-
+import { checkCompatEnabled } from '@vue/compiler-core';
+import {ref, vModelCheckbox, watch} from 'vue';
+const secondItem = ref('')
+const selectAll = ref(false)
+const secondItems: any = ref([])
+const saveSecond = () =>{
+  if(!secondItem.value)return
+  const duplicate = secondItems.value.some((el:any) => el.title == secondItem.value)
+  if(duplicate){
+    return alert (` ${secondItem.value} already exits`)
+  }
+  if(secondItem.value?.toLocaleLowerCase().includes('react')){
+    alert('react is very bad')
+    return
+  }
+  secondItems.value.push({
+    done: false,
+    title: secondItem.value
+  });
+  secondItem.value = ''
+}
 </script>
 
 <template>
 
-  <div class="container">
-    <div>
-     selectall:  <input type="checkbox">
-      <input type="text" class="" id="">
-     
-      <button type="button" class="" id="">add</button>
-      
-    </div>
-
-  </div>
-
 </template>
 
 <style>
-.container {
- display: flex;
- flex-direction: column;
-
- 
- align-items: center;
- padding: 50px auto;
- width: 100%;
- background-color: antiquewhite;
-  
-
-}
 </style>

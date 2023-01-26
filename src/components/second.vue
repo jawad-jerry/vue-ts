@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import { checkCompatEnabled } from '@vue/compiler-core';
 import {ref, vModelCheckbox, watch} from 'vue';
-const secondItem = ref ('')
+const secondItem = ref('')
 const selectAll = ref(false)
-const secondItems: any = ref([])
+const secondItems:any = ref([])
 const saveSecond = () =>{
-  if(!secondItem.value)return
-  const duplicate = secondItems.value.some((el:any) => el.title == secondItem.value)
-  if(duplicate){
-    return alert(`${secondItem.value} alread exits`)
-  }
-  if(secondItem.value?.toLocaleLowerCase().includes('vue.js')){
-    alert('vue.js is very good frame work')
-    return
-  }
-  secondItems.value.push({
-    done: false,
-    title: secondItem.value
-  });
-  secondItem.value = ''
+if(!secondItem.value)return
+const duplicate = secondItems.value.some((el:any) => el.title == secondItem.value)
+if(duplicate){
+  return alert(`${secondItem.value}already exits`)
+}
+if(secondItem.value?.toLocaleLowerCase().includes('vue')){
+alert('vue is very good frame work')
+return
+}
+secondItems.value.push({
+  done: false,
+  title: secondItem.value
+});
+secondItem.value = ''
 }
 
   const del = () =>{
@@ -34,30 +34,29 @@ const saveSecond = () =>{
       secondItems.value[index].done = !secondItems.value[index].done
     })
   })
-   const deleteItem = (index:any) => {
+  const deleteItem = (index:any) =>{
     secondItems.value.splice(index,1)
-   }
+  }
 </script>
 
 <template>
   <div class="container">
-    <div>
-    <input type="checkbox" v-model="selectAll" :disabled="!secondItems.length">
-    <input type="text" v-model="secondItem" @keypress.enter="saveSecond()">
-    <button type="button" @click="saveSecond">add</button>
-    <button type="button" @click="del">delete</button>
-    </div>
+ <div>
+  <input type="checkbox" v-model="selectAll" >
+  <input type="text" v-model="secondItem" @keypress.enter="saveSecond()">
+  <button type="button" @click="saveSecond">add</button>
+  <button type="button" @click="del">delete</button>
+ </div>
+ <div>
+  <table>
+    <tr v-for="(second, index) in secondItems">
+      <td><input type="checkbox" v-model="secondItems[index].done"></td>
+      <td><span :class="second.done ? 'done' : ''">{{ second.title }}</span></td>
+      <td><button type="button" @click="deleteItem(index)">x</button></td>
 
-    <div>
-      <table>
-        <tr v-for="(second, index) in secondItems">
-          <td><input type="checkbox" v-model="secondItems[index].done"></td>
-          <td><span :class="second.done ? 'done' : ''">{{ second.title }}</span></td>
-          <td><button type="button" @click="deleteItem(index)">x</button></td>
-
-        </tr>
-      </table>
-    </div>
+    </tr>
+  </table>
+ </div>
   </div>
 
 </template>

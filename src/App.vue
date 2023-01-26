@@ -3,10 +3,12 @@ import { ref } from 'vue'
 //import First from './components/first.vue'
 import second from './components/second.vue'
 //import Todo from './components/Todo.vue'
+//import tesst from './components/tesst.vue'
 
 
 
-const userName = ref('')
+
+/*const userName = ref('')
 
 const education = ref()
 const handleUserNameInput = (event:any)=>{
@@ -25,7 +27,7 @@ const numbers = ref(0)
 const radio = ref()
 const handleRadio = (event:any)=>{
   radio.value = event.target.value
-}
+}*/
 
 </script>
 

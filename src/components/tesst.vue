@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref} from 'vue';
-const counter = ref(0)
+const counter   =  ref(0)
 const count = () =>{
     if(counter.value <=0){
         return
@@ -11,11 +11,12 @@ const count = () =>{
 </script>
 <template>
 
-   <button @click="count">-</button>
-   <span>{{ counter }}</span>
-   <button @click="counter++" style="display:inline-block">+</button>
-   <button class="cid" v-if="counter" @click="counter = 0">reset</button>
+    <button @click="count">-</button>
+    <span>{{ counter }}</span>
+    <button @click="counter++" style="display:inline-block">+</button>
+    <button v-if="counter" @click="counter=0">reset</button>
 </template>
+
     
 
 

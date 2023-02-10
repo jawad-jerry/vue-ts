@@ -53,7 +53,7 @@ const deleteItem = (index: any) => {
 <template>
     <div class="container">
         <div>
-            <input type="checkbox" name="" id="" v-model="selectAll" :disabled="!firstItems.length">
+            <input type="checkbox"  v-model="selectAll" :disabled="!firstItems.length">
             <input type="text" name="" id="" class="form-input" v-model="firstItem" @keypress.enter="saveFirst()">
             <button type="button" @click="saveFirst">add</button>
             <button type="button" @click="del">delete</button>

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 const todoItem = ref(null)
-const todoItems : any = ref([])
+const todoItems: any = ref([])
 const saveTodo = () =>{
     if(!todoItem.value)return
     todoItems.value.push({

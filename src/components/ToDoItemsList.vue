@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-const props = defineProps(['items'])
+// const props = defineProps(['items'])
 
 </script>
 
 
 <template>
-    <table class="tabItem">
+    <!-- <table class="tabItem">
         <tr v-for="(first, index) in props.items">
             <td>
                 <input type="checkbox" name="" id="" v-model="firstItems[index].done" />
@@ -16,7 +16,7 @@ const props = defineProps(['items'])
             <td><button type="button" @click="deleteItem(index)">x</button></td>
         </tr>
     </table>
-
+ -->
 
 </template>
 <style>

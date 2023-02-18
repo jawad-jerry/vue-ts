@@ -1,14 +1,21 @@
 <script lang="ts" setup>
-import { useRoute } from "vue-router";
-import { ref } from "vue";
+import { useRoute, type RouteParamValueRaw } from "vue-router";
+import type { Ref } from 'vue'
+import { reactive } from "vue";
+interface Todo{
+  id?: Number,
+  title?: String,
+  body?: String,
+  userId?: Number
+}
 const route = useRoute();
-let todoDetail = ref({});
+let todoDetail:Todo = reactive({});
 const url = `https://jsonplaceholder.typicode.com/posts/${route.params.id}`;
 
 fetch(url)
   .then((data) => data.json())
   .then((data) => {
-    todoDetail.value = data;
+    todoDetail = data;
   });
 </script>
 <template>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeMount, onBeforeUnmount } from "vue";
+import type { Ref } from 'vue'
+import type { RouteParamsRaw, RouteParamValueRaw } from "vue-router";
 
 onMounted(() => {
   console.log("vue is mounting component...");
@@ -12,7 +14,7 @@ onBeforeUnmount(() => {
   console.log("vue is unmounted component...");
 });
 
-let todos = ref([]);
+let todos:Ref<Array<{id: RouteParamValueRaw, title: String, body: String, userId: Number}>> = ref([]);
 let loading = ref(false);
 function fetchTodos() {
   //make request
@@ -41,7 +43,7 @@ function fetchTodos() {
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in todos" :key="item.id">
+      <tr v-for="(item, index ) in todos" :key="index">
         <td>{{ item.id }}</td>
         <td>{{ item.title }}</td>
         <td>{{ item.userId }}</td>

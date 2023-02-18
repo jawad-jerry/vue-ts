@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-const styleObject = {id: 'teacher', class: 'student'}
-const msg = 'Hello Jawad Khan'
-let showOrHide = ref(true)
-const boldTitle = "<b style='color:red;'>i'm bold</b>"
+import { ref } from "vue";
+const styleObject = { id: "teacher", class: "student" };
+const msg = "Hello Jawad Khan";
+let showOrHide = ref(true);
+const boldTitle = "<b style='color:red;'>i'm bold</b>";
 </script>
 
 <template>
   <div class="greetings">
     <span>{{ boldTitle }}</span>
     <h1 v-show="showOrHide" v-bind="styleObject">{{ msg }}</h1>
-    <button @click="showOrHide = !showOrHide"> Tooggle Heading</button>
+    <button @click="showOrHide = !showOrHide">Tooggle Heading</button>
   </div>
 </template>
 
@@ -20,7 +20,6 @@ h1 {
   font-size: 2.6rem;
   top: -10px;
   color: bisque;
-
 }
 
 h3 {
